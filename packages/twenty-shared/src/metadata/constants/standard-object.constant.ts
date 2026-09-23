@@ -834,6 +834,7 @@ export const STANDARD_OBJECTS = {
         viewFieldNames: [
           'name',
           'amount',
+          'stage',
           'createdBy',
           'closeDate',
           'company',
@@ -863,20 +864,29 @@ export const STANDARD_OBJECTS = {
           },
         },
         viewGroups: {
-          new: {
+          discoveryDone: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf1',
           },
-          screening: {
+          proposalBuilding: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf2',
           },
-          meeting: {
+          proposalPresented: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf3',
           },
-          proposal: {
+          proposalReviewed: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf4',
           },
-          customer: {
+          proposalNegotiation: {
+            universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf6',
+          },
+          committed: {
+            universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf8',
+          },
+          won: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf5',
+          },
+          lost: {
+            universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf7',
           },
         },
       },
@@ -918,6 +928,9 @@ export const STANDARD_OBJECTS = {
       emailsUniqueIndex: {
         universalIdentifier: '8183a8b2-9114-4f6c-8a5b-12e3f14e5e13',
       },
+      sdrStageIndex: {
+        universalIdentifier: 'c5d12ae1-9c01-4ae1-8d12-ae19c0015d12',
+      },
       searchVectorGinIndex: {
         universalIdentifier: '9294b9c3-0225-4a7d-9b6c-23f4a25f6f24',
       },
@@ -929,6 +942,7 @@ export const STANDARD_OBJECTS = {
         viewFieldNames: [
           'name',
           'emails',
+          'sdrStage',
           'createdBy',
           'company',
           'phones',
@@ -937,6 +951,70 @@ export const STANDARD_OBJECTS = {
           'linkedinLink',
         ],
       }),
+      bySdrStage: {
+        universalIdentifier: '20202020-a0d1-4a04-8a04-0aa0b1ca1bd1',
+        viewFields: {
+          name: {
+            universalIdentifier: '20202020-afd1-4a04-8a04-0aa0b2ca2bd1',
+          },
+          emails: {
+            universalIdentifier: '20202020-afd1-4a04-8a04-0aa0b2ca2bd2',
+          },
+          company: {
+            universalIdentifier: '20202020-afd1-4a04-8a04-0aa0b2ca2bd3',
+          },
+          jobTitle: {
+            universalIdentifier: '20202020-afd1-4a04-8a04-0aa0b2ca2bd4',
+          },
+          phones: {
+            universalIdentifier: '20202020-afd1-4a04-8a04-0aa0b2ca2bd5',
+          },
+          createdBy: {
+            universalIdentifier: '20202020-afd1-4a04-8a04-0aa0b2ca2bd6',
+          },
+        },
+        viewGroups: {
+          toContact: {
+            universalIdentifier: '20202020-afd2-4a04-8a04-0aa0b2ca2be1',
+          },
+          contacted: {
+            universalIdentifier: '20202020-afd2-4a04-8a04-0aa0b2ca2be2',
+          },
+          touchPoint2: {
+            universalIdentifier: '20202020-afd2-4a04-8a04-0aa0b2ca2be3',
+          },
+          touchPoint3: {
+            universalIdentifier: '20202020-afd2-4a04-8a04-0aa0b2ca2be4',
+          },
+          touchPoint4: {
+            universalIdentifier: '20202020-afd2-4a04-8a04-0aa0b2ca2be5',
+          },
+          touchPoint5: {
+            universalIdentifier: '20202020-afd2-4a04-8a04-0aa0b2ca2be6',
+          },
+          touchPoint6: {
+            universalIdentifier: '20202020-afd2-4a04-8a04-0aa0b2ca2be7',
+          },
+          hot: {
+            universalIdentifier: '20202020-afd2-4a04-8a04-0aa0b2ca2be8',
+          },
+          meetingScheduled: {
+            universalIdentifier: '20202020-afd2-4a04-8a04-0aa0b2ca2be9',
+          },
+          reschedule: {
+            universalIdentifier: '20202020-afd2-4a04-8a04-0aa0b2ca2bea',
+          },
+          unqualified: {
+            universalIdentifier: '20202020-afd2-4a04-8a04-0aa0b2ca2beb',
+          },
+          notInterested: {
+            universalIdentifier: '20202020-afd2-4a04-8a04-0aa0b2ca2bec',
+          },
+          nurturing: {
+            universalIdentifier: '20202020-afd2-4a04-8a04-0aa0b2ca2bed',
+          },
+        },
+      },
       personRecordPageFields: buildStandardObjectRecordPageFieldsView({
         objectUniversalIdentifier: STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS.person,
         fields: STANDARD_OBJECT_FIELDS.person,
@@ -945,6 +1023,7 @@ export const STANDARD_OBJECTS = {
           'phones',
           'company',
           'jobTitle',
+          'sdrStage',
           'linkedinLink',
           'avatarUrl',
           'createdAt',

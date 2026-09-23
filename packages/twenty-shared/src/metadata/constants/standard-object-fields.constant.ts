@@ -1070,6 +1070,7 @@ export const STANDARD_OBJECT_FIELDS = {
       universalIdentifier: '20202020-f1af-48f7-893b-2007a73dd508',
     },
     jobTitle: { universalIdentifier: '20202020-b0d0-415a-bef9-640a26dacd9b' },
+    sdrStage: { universalIdentifier: '20202020-5d12-4ae1-9c01-5d12ae19c001' },
     phones: { universalIdentifier: '20202020-0638-448e-8825-439134618022' },
     avatarUrl: {
       universalIdentifier: '20202020-b8a6-40df-961c-373dc5d2ec21',

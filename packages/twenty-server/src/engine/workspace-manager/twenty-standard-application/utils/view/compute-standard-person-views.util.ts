@@ -25,6 +25,21 @@ export const computeStandardPersonViews = (
         icon: 'IconTable',
       },
     }),
+    bySdrStage: createStandardViewFlatMetadata({
+      ...args,
+      objectName: 'person',
+      context: {
+        viewName: 'bySdrStage',
+        name: i18nLabel(
+          msg({ message: `Vista Pipeline SDR`, context: 'view.name' }),
+        ),
+        type: ViewType.KANBAN,
+        key: null,
+        position: 2,
+        icon: 'IconLayoutKanban',
+        mainGroupByFieldName: 'sdrStage',
+      },
+    }),
     personRecordPageFields: createStandardViewFlatMetadata({
       ...args,
       objectName: 'person',

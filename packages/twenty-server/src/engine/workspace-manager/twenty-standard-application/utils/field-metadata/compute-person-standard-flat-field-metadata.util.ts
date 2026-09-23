@@ -229,6 +229,152 @@ export const buildPersonStandardFlatFieldMetadatas = ({
     twentyStandardApplicationId,
     now,
   }),
+  sdrStage: createStandardFieldFlatMetadata({
+    objectName,
+    workspaceId,
+    context: {
+      fieldName: 'sdrStage',
+      type: FieldMetadataType.SELECT,
+      label: i18nLabel(
+        msg({ message: `Etapa SDR`, context: 'fieldMetadata.label' }),
+      ),
+      description: i18nLabel(
+        msg({
+          message: `SDR prospecting stage for this contact`,
+          context: 'fieldMetadata.description',
+        }),
+      ),
+      icon: 'IconProgressCheck',
+      isNullable: false,
+      defaultValue: "'TO_CONTACT'",
+      options: [
+        {
+          id: '20202020-5d12-4ae1-9c01-5d12ae190101',
+          value: 'TO_CONTACT',
+          label: i18nLabel(
+            msg({ message: `Por contactar`, context: 'fieldMetadata.label' }),
+          ),
+          position: 0,
+          color: 'gray',
+        },
+        {
+          id: '20202020-5d12-4ae1-9c01-5d12ae190102',
+          value: 'CONTACTED',
+          label: i18nLabel(
+            msg({ message: `Contactado`, context: 'fieldMetadata.label' }),
+          ),
+          position: 1,
+          color: 'sky',
+        },
+        {
+          id: '20202020-5d12-4ae1-9c01-5d12ae190103',
+          value: 'TOUCH_POINT_2',
+          label: i18nLabel(
+            msg({ message: `Touch point 2`, context: 'fieldMetadata.label' }),
+          ),
+          position: 2,
+          color: 'turquoise',
+        },
+        {
+          id: '20202020-5d12-4ae1-9c01-5d12ae190104',
+          value: 'TOUCH_POINT_3',
+          label: i18nLabel(
+            msg({ message: `Touch point 3`, context: 'fieldMetadata.label' }),
+          ),
+          position: 3,
+          color: 'turquoise',
+        },
+        {
+          id: '20202020-5d12-4ae1-9c01-5d12ae190105',
+          value: 'TOUCH_POINT_4',
+          label: i18nLabel(
+            msg({ message: `Touch point 4`, context: 'fieldMetadata.label' }),
+          ),
+          position: 4,
+          color: 'turquoise',
+        },
+        {
+          id: '20202020-5d12-4ae1-9c01-5d12ae190106',
+          value: 'TOUCH_POINT_5',
+          label: i18nLabel(
+            msg({ message: `Touch point 5`, context: 'fieldMetadata.label' }),
+          ),
+          position: 5,
+          color: 'turquoise',
+        },
+        {
+          id: '20202020-5d12-4ae1-9c01-5d12ae190107',
+          value: 'TOUCH_POINT_6',
+          label: i18nLabel(
+            msg({ message: `Touch point 6`, context: 'fieldMetadata.label' }),
+          ),
+          position: 6,
+          color: 'turquoise',
+        },
+        {
+          id: '20202020-5d12-4ae1-9c01-5d12ae190108',
+          value: 'HOT',
+          label: i18nLabel(
+            msg({ message: `Caliente`, context: 'fieldMetadata.label' }),
+          ),
+          position: 7,
+          color: 'orange',
+        },
+        {
+          id: '20202020-5d12-4ae1-9c01-5d12ae190109',
+          value: 'MEETING_SCHEDULED',
+          label: i18nLabel(
+            msg({
+              message: `Reunión agendada`,
+              context: 'fieldMetadata.label',
+            }),
+          ),
+          position: 8,
+          color: 'green',
+        },
+        {
+          id: '20202020-5d12-4ae1-9c01-5d12ae19010a',
+          value: 'RESCHEDULE',
+          label: i18nLabel(
+            msg({ message: `Reagendar`, context: 'fieldMetadata.label' }),
+          ),
+          position: 9,
+          color: 'yellow',
+        },
+        {
+          id: '20202020-5d12-4ae1-9c01-5d12ae19010b',
+          value: 'UNQUALIFIED',
+          label: i18nLabel(
+            msg({ message: `Unqualified`, context: 'fieldMetadata.label' }),
+          ),
+          position: 10,
+          color: 'red',
+        },
+        {
+          id: '20202020-5d12-4ae1-9c01-5d12ae19010c',
+          value: 'NOT_INTERESTED',
+          label: i18nLabel(
+            msg({ message: `No interesado`, context: 'fieldMetadata.label' }),
+          ),
+          position: 11,
+          color: 'red',
+        },
+        {
+          id: '20202020-5d12-4ae1-9c01-5d12ae19010d',
+          value: 'NURTURING',
+          label: i18nLabel(
+            msg({ message: `En nutrición`, context: 'fieldMetadata.label' }),
+          ),
+          position: 12,
+          color: 'purple',
+        },
+      ],
+    },
+    standardObjectMetadataRelatedEntityIds,
+    dependencyFlatEntityMaps,
+    twentyStandardApplicationId,
+    now,
+  }),
   phones: createStandardFieldFlatMetadata({
     objectName,
     workspaceId,

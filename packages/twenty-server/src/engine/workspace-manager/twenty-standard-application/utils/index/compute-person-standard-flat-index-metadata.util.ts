@@ -43,6 +43,18 @@ export const buildPersonStandardFlatIndexMetadatas = ({
     twentyStandardApplicationId,
     now,
   }),
+  sdrStageIndex: createStandardIndexFlatMetadata({
+    objectName,
+    workspaceId,
+    context: {
+      indexName: 'sdrStageIndex',
+      relatedFieldNames: ['sdrStage'],
+    },
+    standardObjectMetadataRelatedEntityIds,
+    dependencyFlatEntityMaps,
+    twentyStandardApplicationId,
+    now,
+  }),
   searchVectorGinIndex: createStandardIndexFlatMetadata({
     objectName,
     workspaceId,

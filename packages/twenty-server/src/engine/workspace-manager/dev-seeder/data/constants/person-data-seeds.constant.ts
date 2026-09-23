@@ -14,6 +14,7 @@ type PersonDataSeed = {
   avatarUrl: string;
   linkedinLinkPrimaryLinkUrl: string;
   jobTitle: string;
+  sdrStage: string;
   companyId: string;
   phonesPrimaryPhoneNumber: string;
   phonesPrimaryPhoneCountryCode: string;
@@ -35,6 +36,7 @@ export const PERSON_DATA_SEED_COLUMNS: (keyof PersonDataSeed)[] = [
   'avatarUrl',
   'linkedinLinkPrimaryLinkUrl',
   'jobTitle',
+  'sdrStage',
   'companyId',
   'phonesPrimaryPhoneNumber',
   'phonesPrimaryPhoneCountryCode',
@@ -20468,8 +20470,25 @@ export const PERSON_DATA_SEEDS: PersonDataSeed[] = PERSON_DATA_SEEDS_RAW.map(
       ? `${workspaceMember?.nameFirstName} ${workspaceMember?.nameLastName}`
       : 'Unkonwn';
 
+    const sdrStages = [
+      'TO_CONTACT',
+      'CONTACTED',
+      'TOUCH_POINT_2',
+      'TOUCH_POINT_3',
+      'TOUCH_POINT_4',
+      'TOUCH_POINT_5',
+      'TOUCH_POINT_6',
+      'HOT',
+      'MEETING_SCHEDULED',
+      'RESCHEDULE',
+      'UNQUALIFIED',
+      'NOT_INTERESTED',
+      'NURTURING',
+    ] as const;
+
     const dataSeed: PersonDataSeed = {
       ...person,
+      sdrStage: sdrStages[index % sdrStages.length],
       createdBySource: person.createdBySource,
       createdByWorkspaceMemberId: workspaceMemberId,
       createdByName: workspaceMemberName,
