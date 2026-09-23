@@ -866,17 +866,23 @@ export const STANDARD_OBJECTS = {
           new: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf1',
           },
-          screening: {
+          qualification: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf2',
           },
-          meeting: {
+          demoDiscovery: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf3',
           },
           proposal: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf4',
           },
-          customer: {
+          negotiation: {
+            universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf6',
+          },
+          won: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf5',
+          },
+          lost: {
+            universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf7',
           },
         },
       },

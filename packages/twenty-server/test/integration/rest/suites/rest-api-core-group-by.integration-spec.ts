@@ -115,7 +115,7 @@ describe('REST API Core Group By endpoint', () => {
         gqlFields: OPPORTUNITY_GQL_FIELDS,
         data: {
           id: testOpportunityId4,
-          stage: 'SCREENING',
+          stage: 'QUALIFICATION',
           name: 'Opportunity 4',
           amount: { amountMicros: 4000000000000 }, // 4000
           companyId: testCompanyId2,
@@ -221,20 +221,20 @@ describe('REST API Core Group By endpoint', () => {
     expect(opportunity3Record.name).toBe('Opportunity 3');
     expect(opportunity3Record.companyId).toBe(testCompanyId2);
 
-    const thursdayScreeningGroup = groups.find(
+    const thursdayQualificationGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Thursday') &&
-        group.groupByDimensionValues.includes('SCREENING'),
+        group.groupByDimensionValues.includes('QUALIFICATION'),
     );
 
-    expect(thursdayScreeningGroup).toBeDefined();
-    expect(thursdayScreeningGroup.records).toHaveLength(1);
-    const opportunity4Record = thursdayScreeningGroup.records[0];
+    expect(thursdayQualificationGroup).toBeDefined();
+    expect(thursdayQualificationGroup.records).toHaveLength(1);
+    const opportunity4Record = thursdayQualificationGroup.records[0];
 
-    expect(opportunity4Record.stage).toBe('SCREENING');
+    expect(opportunity4Record.stage).toBe('QUALIFICATION');
     expect(opportunity4Record.name).toBe('Opportunity 4');
     expect(opportunity4Record.companyId).toBe(testCompanyId2);
-    expect(thursdayScreeningGroup.maxAmountAmountMicros).toBe('4000000000000');
+    expect(thursdayQualificationGroup.maxAmountAmountMicros).toBe('4000000000000');
   });
 
   it('groups by stage and closeDate with records and filters', async () => {

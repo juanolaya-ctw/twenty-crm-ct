@@ -223,25 +223,28 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
           id: '20202020-8e01-4afd-9c39-d2063097587a',
           value: 'NEW',
           label: i18nLabel(
-            msg({ message: `New`, context: 'fieldMetadata.label' }),
+            msg({ message: `Nuevo`, context: 'fieldMetadata.label' }),
           ),
           position: 0,
           color: 'red',
         },
         {
           id: '20202020-e685-4671-ac32-26d304dacb6e',
-          value: 'SCREENING',
+          value: 'QUALIFICATION',
           label: i18nLabel(
-            msg({ message: `Screening`, context: 'fieldMetadata.label' }),
+            msg({ message: `Calificación`, context: 'fieldMetadata.label' }),
           ),
           position: 1,
           color: 'purple',
         },
         {
           id: '20202020-dde9-4acc-b5ca-f6531a8ecb4a',
-          value: 'MEETING',
+          value: 'DEMO_DISCOVERY',
           label: i18nLabel(
-            msg({ message: `Meeting`, context: 'fieldMetadata.label' }),
+            msg({
+              message: `Demo/Descubrimiento`,
+              context: 'fieldMetadata.label',
+            }),
           ),
           position: 2,
           color: 'sky',
@@ -250,19 +253,37 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
           id: '20202020-696e-4f6b-91bc-f413e9b2f654',
           value: 'PROPOSAL',
           label: i18nLabel(
-            msg({ message: `Proposal`, context: 'fieldMetadata.label' }),
+            msg({ message: `Propuesta`, context: 'fieldMetadata.label' }),
           ),
           position: 3,
           color: 'turquoise',
         },
         {
-          id: '20202020-0bb5-4a6f-a8b2-774bbad21104',
-          value: 'CUSTOMER',
+          id: '20202020-a1b2-4c3d-8e4f-5a6b7c8d9e0f',
+          value: 'NEGOTIATION',
           label: i18nLabel(
-            msg({ message: `Customer`, context: 'fieldMetadata.label' }),
+            msg({ message: `Negociación`, context: 'fieldMetadata.label' }),
           ),
           position: 4,
-          color: 'yellow',
+          color: 'orange',
+        },
+        {
+          id: '20202020-0bb5-4a6f-a8b2-774bbad21104',
+          value: 'WON',
+          label: i18nLabel(
+            msg({ message: `Ganado`, context: 'fieldMetadata.label' }),
+          ),
+          position: 5,
+          color: 'green',
+        },
+        {
+          id: '20202020-b2c3-4d5e-9f0a-1b2c3d4e5f60',
+          value: 'LOST',
+          label: i18nLabel(
+            msg({ message: `Perdido`, context: 'fieldMetadata.label' }),
+          ),
+          position: 6,
+          color: 'gray',
         },
       ],
     },

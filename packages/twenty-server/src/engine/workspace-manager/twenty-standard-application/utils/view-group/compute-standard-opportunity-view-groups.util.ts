@@ -19,25 +19,25 @@ export const computeStandardOpportunityViewGroups = (
         position: 0,
       },
     }),
-    byStageScreening: createStandardViewGroupFlatMetadata({
+    byStageQualification: createStandardViewGroupFlatMetadata({
       ...args,
       objectName: 'opportunity',
       context: {
         viewName: 'byStage',
-        viewGroupName: 'screening',
+        viewGroupName: 'qualification',
         isVisible: true,
-        fieldValue: 'SCREENING',
+        fieldValue: 'QUALIFICATION',
         position: 1,
       },
     }),
-    byStageMeeting: createStandardViewGroupFlatMetadata({
+    byStageDemoDiscovery: createStandardViewGroupFlatMetadata({
       ...args,
       objectName: 'opportunity',
       context: {
         viewName: 'byStage',
-        viewGroupName: 'meeting',
+        viewGroupName: 'demoDiscovery',
         isVisible: true,
-        fieldValue: 'MEETING',
+        fieldValue: 'DEMO_DISCOVERY',
         position: 2,
       },
     }),
@@ -52,15 +52,37 @@ export const computeStandardOpportunityViewGroups = (
         position: 3,
       },
     }),
-    byStageCustomer: createStandardViewGroupFlatMetadata({
+    byStageNegotiation: createStandardViewGroupFlatMetadata({
       ...args,
       objectName: 'opportunity',
       context: {
         viewName: 'byStage',
-        viewGroupName: 'customer',
+        viewGroupName: 'negotiation',
         isVisible: true,
-        fieldValue: 'CUSTOMER',
+        fieldValue: 'NEGOTIATION',
         position: 4,
+      },
+    }),
+    byStageWon: createStandardViewGroupFlatMetadata({
+      ...args,
+      objectName: 'opportunity',
+      context: {
+        viewName: 'byStage',
+        viewGroupName: 'won',
+        isVisible: true,
+        fieldValue: 'WON',
+        position: 5,
+      },
+    }),
+    byStageLost: createStandardViewGroupFlatMetadata({
+      ...args,
+      objectName: 'opportunity',
+      context: {
+        viewName: 'byStage',
+        viewGroupName: 'lost',
+        isVisible: true,
+        fieldValue: 'LOST',
+        position: 6,
       },
     }),
   };

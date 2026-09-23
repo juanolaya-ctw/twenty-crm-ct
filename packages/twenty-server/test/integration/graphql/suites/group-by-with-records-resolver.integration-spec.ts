@@ -125,7 +125,7 @@ describe('basic group-by with records', () => {
         gqlFields: OPPORTUNITY_GQL_FIELDS,
         data: {
           id: testOpportunityId4,
-          stage: 'SCREENING',
+          stage: 'QUALIFICATION',
           name: 'Opportunity 4',
           amount: { amountMicros: 4000000000000 }, // 4000
           companyId: testCompanyId2,
@@ -273,22 +273,22 @@ describe('basic group-by with records', () => {
     expect(opportunity3Edge.company.id).toBe(testCompanyId2);
     expect(opportunity3Edge.company.employees).toBe(COMPANY_2_EMPLOYEES);
 
-    const thursdayScreeningGroup = groups.find(
+    const thursdayQualificationGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Thursday') &&
-        group.groupByDimensionValues.includes('SCREENING'),
+        group.groupByDimensionValues.includes('QUALIFICATION'),
     );
 
-    expect(thursdayScreeningGroup).toBeDefined();
-    expect(thursdayScreeningGroup.edges).toHaveLength(1);
-    const opportunity4Edge = thursdayScreeningGroup.edges[0].node;
+    expect(thursdayQualificationGroup).toBeDefined();
+    expect(thursdayQualificationGroup.edges).toHaveLength(1);
+    const opportunity4Edge = thursdayQualificationGroup.edges[0].node;
 
     expect(opportunity4Edge.amount.amountMicros).toBe(4000000000000);
-    expect(opportunity4Edge.stage).toBe('SCREENING');
+    expect(opportunity4Edge.stage).toBe('QUALIFICATION');
     expect(opportunity4Edge.name).toBe('Opportunity 4');
     expect(opportunity4Edge.company.id).toBe(testCompanyId2);
     expect(opportunity4Edge.company.employees).toBe(COMPANY_2_EMPLOYEES);
-    expect(thursdayScreeningGroup.sumAmountAmountMicros).toBe(4000000000000);
+    expect(thursdayQualificationGroup.sumAmountAmountMicros).toBe(4000000000000);
   });
 
   it('groups by stage and createdAt with records and filters', async () => {
@@ -466,7 +466,7 @@ describe('basic group-by with records', () => {
       ).node;
 
     expect(opportunity4Edge.name).toBe('Opportunity 4');
-    expect(opportunity4Edge.stage).toBe('SCREENING');
+    expect(opportunity4Edge.stage).toBe('QUALIFICATION');
   });
 
   describe('order by for records', () => {
