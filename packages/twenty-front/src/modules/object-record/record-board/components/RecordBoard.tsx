@@ -3,6 +3,7 @@ import { styled } from '@linaria/react';
 import { useContext, useRef } from 'react';
 import { themeCssVariables } from 'twenty-ui/theme-constants';
 
+import { RecordBoardAeOwnerPills } from '@/object-record/record-board/ae-pipeline/components/RecordBoardAeOwnerPills';
 import { RecordBoardColumnWidthEffect } from '@/object-record/record-board/components/RecordBoardColumnWidthEffect';
 import { RecordBoardColumns } from '@/object-record/record-board/components/RecordBoardColumns';
 import { RecordBoardDragSelect } from '@/object-record/record-board/components/RecordBoardDragSelect';
@@ -54,6 +55,7 @@ export const RecordBoard = () => {
         <RecordBoardEffects />
         <RecordBoardColumnWidthEffect />
         <StyledContainerContainer id={getRecordBoardHtmlId(recordBoardId)}>
+          <RecordBoardAeOwnerPills />
           <RecordBoardHeader />
           <StyledBoardContentContainer>
             <StyledContainer ref={boardRef}>

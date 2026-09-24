@@ -5,6 +5,7 @@ import { themeCssVariables } from 'twenty-ui/theme-constants';
 
 import { useObjectPermissionsForObject } from '@/object-record/hooks/useObjectPermissionsForObject';
 import { RecordBoardContext } from '@/object-record/record-board/contexts/RecordBoardContext';
+import { RecordBoardColumnForecastBadge } from '@/object-record/record-board/ae-pipeline/components/RecordBoardColumnForecastBadge';
 import { RecordBoardColumnDropdownMenu } from '@/object-record/record-board/record-board-column/components/RecordBoardColumnDropdownMenu';
 import { DragDropItemSortableHandle } from '@/ui/utilities/drag-and-drop/components/DragDropItemSortableHandle';
 import { RECORD_BOARD_COLUMN_WIDTH } from '@/object-record/record-board/constants/RecordBoardColumnWidth';
@@ -264,6 +265,7 @@ export const RecordBoardColumnHeader = () => {
                   aggregateLabel={recordIndexAggregateDisplayLabel}
                 />
               </StyledAggregateDropdownContainer>
+              <RecordBoardColumnForecastBadge />
             </StyledLeftContainer>
             {!isRecordBoardViewSettingsReadOnly && (
               <StyledHeaderActions
