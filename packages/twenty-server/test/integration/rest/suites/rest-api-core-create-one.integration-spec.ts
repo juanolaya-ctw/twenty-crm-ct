@@ -208,7 +208,7 @@ describe('Core REST API Create One endpoint', () => {
       .expect(400)
       .expect((res) => {
         expect(res.body.messages[0]).toMatch(
-          'Invalid value "INVALID_ENUM_VALUE" for field "stage". Valid values are: NEW, SCREENING, MEETING, PROPOSAL, CUSTOMER',
+          'Invalid value "INVALID_ENUM_VALUE" for field "stage". Valid values are: DISCOVERY_DONE, PROPOSAL_BUILDING, PROPOSAL_PRESENTED, PROPOSAL_REVIEWED, PROPOSAL_NEGOTIATION, COMMITTED, WON, LOST',
         );
         expect(res.body.error).toBe('BadRequestException');
       });

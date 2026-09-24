@@ -834,12 +834,15 @@ export const STANDARD_OBJECTS = {
         viewFieldNames: [
           'name',
           'amount',
+          'stage',
           'createdBy',
           'closeDate',
           'company',
           'pointOfContact',
         ],
       }),
+      // Pipeline AE (Sponsors): kanban by Opportunity.stage — NOT SDR.
+      // SDR kanban lives on custom object Cuenta/Área (UI Data model), not Person.
       byStage: {
         universalIdentifier: '20202020-a004-4a04-8a04-0aa0b1ca1ba0',
         viewFields: {
@@ -863,20 +866,29 @@ export const STANDARD_OBJECTS = {
           },
         },
         viewGroups: {
-          new: {
+          discoveryDone: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf1',
           },
-          screening: {
+          proposalBuilding: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf2',
           },
-          meeting: {
+          proposalPresented: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf3',
           },
-          proposal: {
+          proposalReviewed: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf4',
           },
-          customer: {
+          proposalNegotiation: {
+            universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf6',
+          },
+          committed: {
+            universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf8',
+          },
+          won: {
             universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf5',
+          },
+          lost: {
+            universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf7',
           },
         },
       },

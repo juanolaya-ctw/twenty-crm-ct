@@ -21,6 +21,11 @@ import { type OpportunityWorkspaceEntity } from 'src/modules/opportunity/standar
 import { type TaskTargetWorkspaceEntity } from 'src/modules/task/standard-objects/task-target.workspace-entity';
 import { type TimelineActivityWorkspaceEntity } from 'src/modules/timeline/standard-objects/timeline-activity.workspace-entity';
 
+/**
+ * Person is secondary in the Sponsors B2B model (Empresa → Cuenta → Persona → Opportunity).
+ * SDR kanban cards are Cuenta/Área (UI custom object), not Person — do not add sdrStage as the
+ * primary SDR pipeline axis. See docs/crm-sponsors-b2b-model.md.
+ */
 export class PersonWorkspaceEntity extends BaseWorkspaceEntity {
   name: FullNameMetadata | null;
   emails: EmailsMetadata;
