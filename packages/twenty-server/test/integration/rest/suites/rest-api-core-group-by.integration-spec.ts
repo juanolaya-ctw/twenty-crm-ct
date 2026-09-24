@@ -67,7 +67,7 @@ describe('REST API Core Group By endpoint', () => {
         gqlFields: OPPORTUNITY_GQL_FIELDS,
         data: {
           id: testOpportunityId1,
-          stage: 'NEW',
+          stage: 'DISCOVERY_DONE',
           name: 'Opportunity 1',
           amount: { amountMicros: 1000000000000 }, // 1000
           companyId: testCompanyId1,
@@ -83,7 +83,7 @@ describe('REST API Core Group By endpoint', () => {
         gqlFields: OPPORTUNITY_GQL_FIELDS,
         data: {
           id: testOpportunityId2,
-          stage: 'NEW',
+          stage: 'DISCOVERY_DONE',
           name: 'Opportunity 2',
           amount: { amountMicros: 2000000000000 }, // 2000
           companyId: testCompanyId1,
@@ -99,7 +99,7 @@ describe('REST API Core Group By endpoint', () => {
         gqlFields: OPPORTUNITY_GQL_FIELDS,
         data: {
           id: testOpportunityId3,
-          stage: 'NEW',
+          stage: 'DISCOVERY_DONE',
           name: 'Opportunity 3',
           amount: { amountMicros: 3000000000000 }, // 3000
           companyId: testCompanyId2,
@@ -115,7 +115,7 @@ describe('REST API Core Group By endpoint', () => {
         gqlFields: OPPORTUNITY_GQL_FIELDS,
         data: {
           id: testOpportunityId4,
-          stage: 'SCREENING',
+          stage: 'PROPOSAL_BUILDING',
           name: 'Opportunity 4',
           amount: { amountMicros: 4000000000000 }, // 4000
           companyId: testCompanyId2,
@@ -189,19 +189,19 @@ describe('REST API Core Group By endpoint', () => {
     const wednesdayNewGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Wednesday') &&
-        group.groupByDimensionValues.includes('NEW'),
+        group.groupByDimensionValues.includes('DISCOVERY_DONE'),
     );
 
     expect(wednesdayNewGroup).toBeDefined();
     expect(wednesdayNewGroup.maxAmountAmountMicros).toBe('1000000000000');
     expect(wednesdayNewGroup.records).toHaveLength(1);
     expect(wednesdayNewGroup.records[0].name).toBe('Opportunity 1');
-    expect(wednesdayNewGroup.records[0].stage).toBe('NEW');
+    expect(wednesdayNewGroup.records[0].stage).toBe('DISCOVERY_DONE');
 
     const thursdayNewGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Thursday') &&
-        group.groupByDimensionValues.includes('NEW'),
+        group.groupByDimensionValues.includes('DISCOVERY_DONE'),
     );
 
     expect(thursdayNewGroup).toBeDefined();
@@ -214,24 +214,24 @@ describe('REST API Core Group By endpoint', () => {
       (record: any) => record.name === 'Opportunity 3',
     );
 
-    expect(opportunity2Record.stage).toBe('NEW');
+    expect(opportunity2Record.stage).toBe('DISCOVERY_DONE');
     expect(opportunity2Record.name).toBe('Opportunity 2');
     expect(opportunity2Record.companyId).toBe(testCompanyId1);
-    expect(opportunity3Record.stage).toBe('NEW');
+    expect(opportunity3Record.stage).toBe('DISCOVERY_DONE');
     expect(opportunity3Record.name).toBe('Opportunity 3');
     expect(opportunity3Record.companyId).toBe(testCompanyId2);
 
     const thursdayScreeningGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Thursday') &&
-        group.groupByDimensionValues.includes('SCREENING'),
+        group.groupByDimensionValues.includes('PROPOSAL_BUILDING'),
     );
 
     expect(thursdayScreeningGroup).toBeDefined();
     expect(thursdayScreeningGroup.records).toHaveLength(1);
     const opportunity4Record = thursdayScreeningGroup.records[0];
 
-    expect(opportunity4Record.stage).toBe('SCREENING');
+    expect(opportunity4Record.stage).toBe('PROPOSAL_BUILDING');
     expect(opportunity4Record.name).toBe('Opportunity 4');
     expect(opportunity4Record.companyId).toBe(testCompanyId2);
     expect(thursdayScreeningGroup.maxAmountAmountMicros).toBe('4000000000000');
@@ -249,7 +249,7 @@ describe('REST API Core Group By endpoint', () => {
       },
     ]);
 
-    const filterQuery = `${FILTER_2020},stage[eq]:'NEW'`;
+    const filterQuery = `${FILTER_2020},stage[eq]:'DISCOVERY_DONE'`;
 
     const response = await makeRestAPIRequest({
       method: 'get',
@@ -266,23 +266,23 @@ describe('REST API Core Group By endpoint', () => {
     const wednesdayNewGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Wednesday') &&
-        group.groupByDimensionValues.includes('NEW'),
+        group.groupByDimensionValues.includes('DISCOVERY_DONE'),
     );
 
     expect(wednesdayNewGroup.groupByDimensionValues).toHaveLength(2);
-    expect(wednesdayNewGroup.groupByDimensionValues).toContain('NEW');
+    expect(wednesdayNewGroup.groupByDimensionValues).toContain('DISCOVERY_DONE');
     expect(wednesdayNewGroup.groupByDimensionValues).toContain('Wednesday');
     expect(wednesdayNewGroup.records).toHaveLength(1);
-    expect(wednesdayNewGroup.records[0].stage).toBe('NEW');
+    expect(wednesdayNewGroup.records[0].stage).toBe('DISCOVERY_DONE');
 
     const thursdayNewGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Thursday') &&
-        group.groupByDimensionValues.includes('NEW'),
+        group.groupByDimensionValues.includes('DISCOVERY_DONE'),
     );
 
     expect(thursdayNewGroup.groupByDimensionValues).toHaveLength(2);
-    expect(thursdayNewGroup.groupByDimensionValues).toContain('NEW');
+    expect(thursdayNewGroup.groupByDimensionValues).toContain('DISCOVERY_DONE');
     expect(thursdayNewGroup.groupByDimensionValues).toContain('Thursday');
     expect(thursdayNewGroup.records).toHaveLength(2);
   });
@@ -322,7 +322,7 @@ describe('REST API Core Group By endpoint', () => {
       const thursdayNewGroup = groups.find(
         (group: any) =>
           group.groupByDimensionValues.includes('Thursday') &&
-          group.groupByDimensionValues.includes('NEW'),
+          group.groupByDimensionValues.includes('DISCOVERY_DONE'),
       );
 
       expect(thursdayNewGroup).toBeDefined();
@@ -344,7 +344,7 @@ describe('REST API Core Group By endpoint', () => {
       const thursdayNewGroup = groups.find(
         (group: any) =>
           group.groupByDimensionValues.includes('Thursday') &&
-          group.groupByDimensionValues.includes('NEW'),
+          group.groupByDimensionValues.includes('DISCOVERY_DONE'),
       );
 
       expect(thursdayNewGroup).toBeDefined();

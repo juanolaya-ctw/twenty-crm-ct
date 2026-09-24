@@ -16,6 +16,10 @@ import { type TaskTargetWorkspaceEntity } from 'src/modules/task/standard-object
 import { type TimelineActivityWorkspaceEntity } from 'src/modules/timeline/standard-objects/timeline-activity.workspace-entity';
 import { type WorkspaceMemberWorkspaceEntity } from 'src/modules/workspace-member/standard-objects/workspace-member.workspace-entity';
 
+/**
+ * Company = unique master by domain (Sponsors B2B). No SDR kanban on Company.
+ * Multi-área SDR state lives on Cuenta/Área (UI custom object). See docs/crm-sponsors-b2b-model.md.
+ */
 export class CompanyWorkspaceEntity {
   id: string;
   createdAt: string;

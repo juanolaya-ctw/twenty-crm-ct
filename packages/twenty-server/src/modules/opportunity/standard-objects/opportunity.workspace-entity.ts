@@ -12,16 +12,25 @@ import { type TaskTargetWorkspaceEntity } from 'src/modules/task/standard-object
 import { type TimelineActivityWorkspaceEntity } from 'src/modules/timeline/standard-objects/timeline-activity.workspace-entity';
 import { type WorkspaceMemberWorkspaceEntity } from 'src/modules/workspace-member/standard-objects/workspace-member.workspace-entity';
 
+/**
+ * AE pipeline only (Sponsors stages on `stage` / Pipeline AE kanban).
+ * Product link is to Cuenta/Área (required), not Person-as-SDR; Person + Product are deal
+ * properties. Native relations today: company + pointOfContact. Cuenta is a UI custom object
+ * until standardized — see docs/crm-sponsors-b2b-model.md.
+ */
 export class OpportunityWorkspaceEntity extends BaseWorkspaceEntity {
   name: string;
   amount: CurrencyMetadata | null;
   closeDate: Date | null;
+  /** AE Sponsors stages (DISCOVERY_DONE … WON/LOST). Not SDR. */
   stage: string;
   position: number;
   createdBy: ActorMetadata;
   updatedBy: ActorMetadata;
+  /** Deal property: primary person — not the SDR kanban axis. */
   pointOfContact: EntityRelation<PersonWorkspaceEntity> | null;
   pointOfContactId: string | null;
+  /** Master company; multi-área SDR state lives on Cuenta, not here. */
   company: EntityRelation<CompanyWorkspaceEntity> | null;
   companyId: string | null;
   taskTargets: EntityRelation<TaskTargetWorkspaceEntity[]>;
