@@ -5,6 +5,7 @@ import { getImageAbsoluteURI, isDefined } from 'twenty-shared/utils';
 import { Avatar } from 'twenty-ui/primitives/data-display';
 import { UndecoratedLink } from 'twenty-ui/primitives/navigation';
 import { themeCssVariables } from 'twenty-ui/theme-constants';
+import { COLOMBIA_TECH_BRAND_NAME } from '@/branding/constants/ColombiaTechBrand';
 import { REACT_APP_SERVER_BASE_URL } from '~/config';
 import { useRedirectToDefaultDomain } from '~/modules/domain-manager/hooks/useRedirectToDefaultDomain';
 
@@ -23,6 +24,29 @@ const StyledContainer = styled.div`
 
   position: relative;
   width: ${themeCssVariables.spacing[12]};
+`;
+
+const StyledTextMarkContainer = styled.div`
+  align-items: center;
+  display: flex;
+  height: ${themeCssVariables.spacing[12]};
+  justify-content: flex-start;
+  margin-bottom: ${themeCssVariables.spacing[4]};
+  margin-top: ${themeCssVariables.spacing[4]};
+  min-width: ${themeCssVariables.spacing[12]};
+  position: relative;
+  width: auto;
+`;
+
+const StyledTextMark = styled.span`
+  color: ${themeCssVariables.font.color.primary};
+  font-family: ${themeCssVariables.font.family};
+  font-size: ${themeCssVariables.font.size.xl};
+  font-weight: ${themeCssVariables.font.weight.semiBold};
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  padding-right: ${themeCssVariables.spacing[4]};
+  white-space: nowrap;
 `;
 
 const StyledSecondaryLogo = styled.img`
@@ -59,12 +83,13 @@ export const Logo = ({
   to = AppPath.SignInUp,
 }: LogoProps) => {
   const { redirectToDefaultDomain } = useRedirectToDefaultDomain();
-  const defaultPrimaryLogoUrl = `${window.location.origin}/images/icons/android/android-launchericon-192-192.png`;
 
-  const primaryLogoUrl = getImageAbsoluteURI({
-    imageUrl: primaryLogo ?? defaultPrimaryLogoUrl,
-    baseUrl: REACT_APP_SERVER_BASE_URL,
-  });
+  const primaryLogoUrl = isDefined(primaryLogo)
+    ? getImageAbsoluteURI({
+        imageUrl: primaryLogo,
+        baseUrl: REACT_APP_SERVER_BASE_URL,
+      })
+    : null;
 
   const secondaryLogoUrl = isNonEmptyString(secondaryLogo)
     ? getImageAbsoluteURI({
@@ -73,37 +98,40 @@ export const Logo = ({
       })
     : null;
 
-  const isUsingDefaultLogo = !isDefined(primaryLogo);
+  const secondaryBadge = isDefined(secondaryLogoUrl) ? (
+    <StyledSecondaryLogoContainer>
+      <StyledSecondaryLogo src={secondaryLogoUrl} />
+    </StyledSecondaryLogoContainer>
+  ) : (
+    isDefined(placeholder) && (
+      <StyledSecondaryLogoContainer>
+        <Avatar
+          size="lg"
+          name={placeholder}
+          shape="square"
+          colorSeed={placeholder}
+        />
+      </StyledSecondaryLogoContainer>
+    )
+  );
+
+  if (!isDefined(primaryLogoUrl)) {
+    return (
+      <StyledTextMarkContainer onClick={() => onClick?.()}>
+        <UndecoratedLink to={to} onClick={() => redirectToDefaultDomain()}>
+          <StyledTextMark>{COLOMBIA_TECH_BRAND_NAME}</StyledTextMark>
+        </UndecoratedLink>
+        {secondaryBadge}
+      </StyledTextMarkContainer>
+    );
+  }
 
   return (
     <StyledContainer onClick={() => onClick?.()}>
-      {isUsingDefaultLogo ? (
-        <UndecoratedLink to={to} onClick={() => redirectToDefaultDomain()}>
-          <StyledPrimaryLogo
-            style={{ backgroundImage: `url(${primaryLogoUrl})` }}
-          />
-        </UndecoratedLink>
-      ) : (
-        <StyledPrimaryLogo
-          style={{ backgroundImage: `url(${primaryLogoUrl})` }}
-        />
-      )}
-      {isDefined(secondaryLogoUrl) ? (
-        <StyledSecondaryLogoContainer>
-          <StyledSecondaryLogo src={secondaryLogoUrl} />
-        </StyledSecondaryLogoContainer>
-      ) : (
-        isDefined(placeholder) && (
-          <StyledSecondaryLogoContainer>
-            <Avatar
-              size="lg"
-              name={placeholder}
-              shape="square"
-              colorSeed={placeholder}
-            />
-          </StyledSecondaryLogoContainer>
-        )
-      )}
+      <StyledPrimaryLogo
+        style={{ backgroundImage: `url(${primaryLogoUrl})` }}
+      />
+      {secondaryBadge}
     </StyledContainer>
   );
 };

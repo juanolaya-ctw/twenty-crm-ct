@@ -1,3 +1,7 @@
+> **ColombiaTech CRM fork** (`twenty-crm-ct`): user-facing brand is **ColombiaTech**.
+> Kanban AE: owner pills (Cerrado / Open Pipe) + column forecast (Amount × % etapa).
+> Upstream Twenty docs still apply for local/Docker setup.
+
 <p align="center">
   <a href="https://www.twenty.com">
     <img src="./packages/twenty-website/public/images/core/logo.svg" width="100px" alt="Twenty logo" />

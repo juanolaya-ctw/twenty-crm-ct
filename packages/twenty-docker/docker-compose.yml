@@ -1,4 +1,5 @@
 name: twenty
+# ColombiaTech fork of Twenty CRM — user-facing brand is ColombiaTech; compose project name kept as `twenty` for volume continuity.
 
 services:
   server:
