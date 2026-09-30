@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
+  <rect width="96" height="96" rx="12" fill="#16A34A"/>
+  <text x="48" y="52" text-anchor="middle" dominant-baseline="middle"
+        font-family="system-ui, -apple-system, Segoe UI, sans-serif"
+        font-size="40" font-weight="700" fill="#FFFFFF">CT</text>
+</svg>

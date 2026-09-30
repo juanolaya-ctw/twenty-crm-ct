@@ -58,10 +58,11 @@ const StyledRightSide = styled(StyledSide)`
 `;
 
 const StyledLogo = styled.div`
-  background-image: url('/images/integrations/twenty-logo.svg');
+  background-image: url('/images/branding/ct-mark.svg');
   background-size: cover;
+  border-radius: ${themeCssVariables.border.radius.sm};
   height: ${themeCssVariables.spacing[6]};
-  opacity: 0.4;
+  opacity: 0.9;
   width: ${themeCssVariables.spacing[6]};
 `;
 

@@ -1,11 +1,18 @@
+import { COLOMBIA_TECH_BRAND_NAME } from '@/branding/constants/ColombiaTechBrand';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'twenty-ui/theme-constants';
 
-const StyledLogo = styled.img`
+const StyledTextMark = styled.span`
   animation: onboardingPulsingLogo 0.8s ease-in-out infinite alternate;
-  height: ${themeCssVariables.spacing[12]};
+  color: ${themeCssVariables.font.color.primary};
+  display: inline-block;
+  font-family: ${themeCssVariables.font.family};
+  font-size: ${themeCssVariables.font.size.xl};
+  font-weight: ${themeCssVariables.font.weight.semiBold};
+  letter-spacing: -0.02em;
+  line-height: 1.2;
   margin-bottom: ${themeCssVariables.spacing[8]};
-  width: ${themeCssVariables.spacing[12]};
+  white-space: nowrap;
 
   @keyframes onboardingPulsingLogo {
     from {
@@ -22,6 +29,10 @@ const StyledLogo = styled.img`
   }
 `;
 
+/**
+ * Loader mark during workspace activation ("Rellenando tus datos…").
+ * Matches welcome primary mark: ColombiaTech text (no Twenty "20").
+ */
 export const OnboardingPulsingLogo = () => (
-  <StyledLogo src="/images/integrations/twenty-logo.svg" alt="" />
+  <StyledTextMark aria-hidden="true">{COLOMBIA_TECH_BRAND_NAME}</StyledTextMark>
 );
